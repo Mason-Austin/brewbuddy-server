@@ -54,6 +54,11 @@ class BrewLogView(ViewSet):
         brew_log.date=request.data["date"]
         brew_log.save()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    def destroy(self, request, pk):
+        brew_log = BrewLog.objects.get(pk=pk)
+        brew_log.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 class BrewLogSerializer(serializers.ModelSerializer):
     """JSON serializer for BrewLog"""
