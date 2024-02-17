@@ -54,6 +54,11 @@ class BrewView(ViewSet):
 
         serializer = BrewSerializer(brew)
         return Response(serializer.data)
+      
+    def destroy(self, request, pk):
+        brew = Brew.objects.get(pk=pk)
+        brew.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 class BrewSerializer(serializers.ModelSerializer):
     """JSON serializer for Brew"""
