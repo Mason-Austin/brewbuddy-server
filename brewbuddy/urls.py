@@ -17,9 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from brewbuddyapi.views import register_user, check_user
+from brewbuddyapi.views import register_user, check_user, BrewView
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'brews', BrewView, 'brew')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

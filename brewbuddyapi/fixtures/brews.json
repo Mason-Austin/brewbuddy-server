@@ -1,0 +1,47 @@
+[
+  {
+    "model": "brewbuddyapi.brew",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "name": "Hoppy IPA",
+      "description": "A flavorful IPA with a hoppy aroma"
+    }
+  },
+  {
+    "model": "brewbuddyapi.brew",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "name": "Robust Wine",
+      "description": "A rich and bold Wine with chocolate notes"
+    }
+  },
+  {
+    "model": "brewbuddyapi.brew",
+    "pk": 3,
+    "fields": {
+      "user": 3,
+      "name": "Traditional Mead",
+      "description": "A classic Mead with a balanced flavor profile"
+    }
+  },
+  {
+    "model": "brewbuddyapi.brew",
+    "pk": 4,
+    "fields": {
+      "user": 4,
+      "name": "Wheat Cider",
+      "description": "A refreshing Wheat Cider with hints of citrus"
+    }
+  },
+  {
+    "model": "brewbuddyapi.brew",
+    "pk": 5,
+    "fields": {
+      "user": 5,
+      "name": "Sour Sake",
+      "description": "A tart and funky Sour Sake with fruit undertones"
+    }
+  }
+]

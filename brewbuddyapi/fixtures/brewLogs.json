@@ -1,0 +1,47 @@
+[
+  {
+    "model": "brewbuddyapi.brewlog",
+    "pk": 1,
+    "fields": {
+      "brew": 1,
+      "log": "Started brewing process",
+      "date": "2024-02-13"
+    }
+  },
+  {
+    "model": "brewbuddyapi.brewlog",
+    "pk": 2,
+    "fields": {
+      "brew": 2,
+      "log": "Fermentation completed",
+      "date": "2024-02-14"
+    }
+  },
+  {
+    "model": "brewbuddyapi.brewlog",
+    "pk": 3,
+    "fields": {
+      "brew": 3,
+      "log": "Boiling wort",
+      "date": "2024-02-15"
+    }
+  },
+  {
+    "model": "brewbuddyapi.brewlog",
+    "pk": 4,
+    "fields": {
+      "brew": 4,
+      "log": "Mashing grains",
+      "date": "2024-02-16"
+    }
+  },
+  {
+    "model": "brewbuddyapi.brewlog",
+    "pk": 5,
+    "fields": {
+      "brew": 5,
+      "log": "Adding hops",
+      "date": "2024-02-17"
+    }
+  }
+]

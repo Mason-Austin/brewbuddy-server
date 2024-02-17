@@ -1,0 +1,37 @@
+[
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 1,
+    "fields": {
+      "label": "Beer"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 2,
+    "fields": {
+      "label": "Wine"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 3,
+    "fields": {
+      "label": "Mead"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 4,
+    "fields": {
+      "label": "Cider"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 5,
+    "fields": {
+      "label": "Sake"
+    }
+  }
+]
