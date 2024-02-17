@@ -7,6 +7,17 @@ from ..models import Brew, User
 class BrewView(ViewSet):
     """brewbuddy api view set for brews"""
 
+    def retrieve(self, request, pk):
+        """Handle GET requests for a single Brew
+        Returns:
+          Response -- JSON serialized brew"""
+        try:
+            brew = Brew.objects.get(pk=pk)
+            serializer = BrewSerializer(brew)
+            return Response(serializer.data)
+        except Brew.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
     def list(self, request):
         """Handle GET requests for Multiple Brews
         
