@@ -6,6 +6,16 @@ from ..models import Brew, User
 
 class BrewView(ViewSet):
     """brewbuddy api view set for brews"""
+
+    def list(self, request):
+        """Handle GET requests for Multiple Brews
+        
+        Returns:
+          Response -- JSON serialized Brews"""
+        brews = Brew.objects.all()
+        serializer = BrewSerializer(brews, many=True)
+        return Response(serializer.data)
+
     def create(self, request):
         """Handle POST operations
         
