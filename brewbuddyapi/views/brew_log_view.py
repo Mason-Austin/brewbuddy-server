@@ -16,7 +16,17 @@ class BrewLogView(ViewSet):
             return Response(serializer.data)
         except BrewLog.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-          
+
+    def list(self, request):
+        """Handle GET requests for Multiple brewlogs for a single brew
+
+        Returns:
+          Response -- JSON serialized BrewsLogs"""
+        brew = request.query_params.get('brew')
+        brew_logs = BrewLog.objects.filter(brew=brew)
+        serializer = BrewLogSerializer(brew_logs, many=True)
+        return Response(serializer.data)
+
 class BrewLogSerializer(serializers.ModelSerializer):
     """JSON serializer for BrewLog"""
     class Meta:
