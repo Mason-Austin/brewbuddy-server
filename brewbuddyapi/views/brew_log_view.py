@@ -27,9 +27,26 @@ class BrewLogView(ViewSet):
         serializer = BrewLogSerializer(brew_logs, many=True)
         return Response(serializer.data)
 
+    def create(self, request):
+        """Handle Post operations
+
+        Returns
+          Response -- JSON serialized brewlog instance"""
+
+        brew = Brew.objects.get(id=request.data["brewId"])
+
+        brew_log = BrewLog.objects.create(
+          log = request.data["log"],
+          date = request.data["date"],
+          brew = brew
+        )
+
+        serializer = BrewLogSerializer(brew_log)
+        return Response(serializer.data)
+
 class BrewLogSerializer(serializers.ModelSerializer):
     """JSON serializer for BrewLog"""
     class Meta:
         model = BrewLog
-        fields = ("id", "brew", "log", "date")
+        fields = ("id", "log", "date")
         depth = 1
