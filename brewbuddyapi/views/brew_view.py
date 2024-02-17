@@ -26,7 +26,7 @@ class BrewView(ViewSet):
         brews = Brew.objects.all()
         serializer = BrewSerializer(brews, many=True)
         return Response(serializer.data)
-      
+
     def update(self, request, pk):
         """Handle POST operations
         
@@ -54,7 +54,7 @@ class BrewView(ViewSet):
 
         serializer = BrewSerializer(brew)
         return Response(serializer.data)
-      
+
     def destroy(self, request, pk):
         brew = Brew.objects.get(pk=pk)
         brew.delete()
