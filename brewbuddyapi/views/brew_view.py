@@ -26,12 +26,23 @@ class BrewView(ViewSet):
         brews = Brew.objects.all()
         serializer = BrewSerializer(brews, many=True)
         return Response(serializer.data)
+      
+    def update(self, request, pk):
+        """Handle POST operations
+        
+        Returns:
+          Response -- JSON serialized brew instance"""
+        brew = Brew.objects.get(pk=pk)
+        brew.name=request.data["name"]
+        brew.description=request.data["description"]
+        brew.save()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     def create(self, request):
         """Handle POST operations
         
         Returns
-          Respone -- JSON serialized brew instance"""
+          Response -- JSON serialized brew instance"""
 
         user = User.objects.get(id=request.data["userId"])
 
