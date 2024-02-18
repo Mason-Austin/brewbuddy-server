@@ -17,7 +17,16 @@ class CategoryView(ViewSet):
             return Response(serializer.data)
         except Category.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-          
+
+    def list(self, request):
+        """Handle GET requests for Multiple categories
+
+        Returns:
+          Response -- JSON serialized Brews"""
+        categories = Category.objects.all()
+        serializer = CategorySerializer(categories, many=True)
+        return Response(serializer.data)
+
 class CategorySerializer(serializers.ModelSerializer):
     """JSON serializer for category"""
     class Meta:
