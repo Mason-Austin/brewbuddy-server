@@ -2,7 +2,8 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from ..models import Brew, User
+from rest_framework.decorators import action
+from ..models import Brew, User, BrewCategory, Category
 
 class BrewView(ViewSet):
     """brewbuddy api view set for brews"""
@@ -45,12 +46,20 @@ class BrewView(ViewSet):
           Response -- JSON serialized brew instance"""
 
         user = User.objects.get(id=request.data["userId"])
+        categories = request.data["categories"]
 
         brew = Brew.objects.create(
           name = request.data["name"],
           description = request.data["description"],
           user = user,
         )
+        
+        for s_category in categories:
+          category = Category.objects.get(id=s_category)
+          BrewCategory.objects.create(
+            brew = brew,
+            category = category
+          )
 
         serializer = BrewSerializer(brew)
         return Response(serializer.data)
@@ -64,5 +73,5 @@ class BrewSerializer(serializers.ModelSerializer):
     """JSON serializer for Brew"""
     class Meta:
         model = Brew
-        fields = ("id", "name", "user", "description")
+        fields = ("id", "name", "user", "description", "categories")
         depth = 1

@@ -7,3 +7,4 @@ class Brew(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     description = models.TextField()
+    completed = models.BooleanField(default=False)
