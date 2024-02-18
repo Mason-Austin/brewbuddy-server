@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from brewbuddyapi.views import register_user, check_user, BrewView, BrewLogView
+from brewbuddyapi.views import register_user, check_user, BrewView, BrewLogView, CategoryView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'brews', BrewView, 'brew')
 router.register(r'brew_logs', BrewLogView, 'brew_log')
+router.register(r'categories', CategoryView, 'category' )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
