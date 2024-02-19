@@ -10,6 +10,8 @@ class BrewView(ViewSet):
 
     @action(methods=['post'], detail=True)
     def add_category(self, request, pk):
+        """This function creates the relation table between one brew and one category"""
+
         brew = Brew.objects.get(pk=pk)
         category = Category.objects.get(id=request.data['categoryId'])
         try:
@@ -22,9 +24,11 @@ class BrewView(ViewSet):
             )
             serializer = BrewSerializer(brew)
             return Response(serializer.data)
-          
+
     @action(methods=['delete'], detail=True)
     def remove_category(self, request, pk):
+        """This function deletes the relation table between one brew and one category"""
+
         brew = Brew.objects.get(pk=pk)
         category = Category.objects.get(id=request.data['categoryId'])
         brew_category = BrewCategory.objects.get(brew=brew, category=category)
