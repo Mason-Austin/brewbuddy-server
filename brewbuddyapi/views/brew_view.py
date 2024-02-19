@@ -22,6 +22,15 @@ class BrewView(ViewSet):
             )
             serializer = BrewSerializer(brew)
             return Response(serializer.data)
+          
+    @action(methods=['delete'], detail=True)
+    def remove_category(self, request, pk):
+        brew = Brew.objects.get(pk=pk)
+        category = Category.objects.get(id=request.data['categoryId'])
+        brew_category = BrewCategory.objects.get(brew=brew, category=category)
+        brew_category.delete()
+        serializer = BrewSerializer(brew)
+        return Response(serializer.data)
 
     def retrieve(self, request, pk):
         """Handle GET requests for a single Brew
