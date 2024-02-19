@@ -8,6 +8,21 @@ from ..models import Brew, User, BrewCategory, Category
 class BrewView(ViewSet):
     """brewbuddy api view set for brews"""
 
+    @action(methods=['post'], detail=True)
+    def add_category(self, request, pk):
+        brew = Brew.objects.get(pk=pk)
+        category = Category.objects.get(id=request.data['categoryId'])
+        try:
+            BrewCategory.objects.get(brew=brew, category=category)
+            return Response({'message: This brew already has this category'})
+        except BrewCategory.DoesNotExist:
+            BrewCategory.objects.create(
+              brew=brew,
+              category=category
+            )
+            serializer = BrewSerializer(brew)
+            return Response(serializer.data)
+
     def retrieve(self, request, pk):
         """Handle GET requests for a single Brew
         Returns:
@@ -53,13 +68,13 @@ class BrewView(ViewSet):
           description = request.data["description"],
           user = user,
         )
-        
+
         for s_category in categories:
-          category = Category.objects.get(id=s_category)
-          BrewCategory.objects.create(
-            brew = brew,
-            category = category
-          )
+            category = Category.objects.get(id=s_category)
+            BrewCategory.objects.create(
+              brew = brew,
+              category = category
+            )
 
         serializer = BrewSerializer(brew)
         return Response(serializer.data)
