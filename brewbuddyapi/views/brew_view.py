@@ -59,9 +59,30 @@ class BrewView(ViewSet):
         Returns:
           Response -- JSON serialized brew instance"""
         brew = Brew.objects.get(pk=pk)
+        categories = request.data["categories"]
+        brew_categories = BrewCategory.objects.filter(brew=brew)
+        def selected_categories(brew_categories):
+            return [brew_category.category.id for brew_category in brew_categories]
+
         brew.name=request.data["name"]
         brew.description=request.data["description"]
+        brew.image=request.data["image"]
+        brew.stage=request.data["stage"]
         brew.save()
+        
+        for s_category in categories:
+            if s_category not in selected_categories(brew_categories) :
+              category = Category.objects.get(id=s_category)
+              BrewCategory.objects.create(
+                brew = brew,
+                category = category
+              )
+
+        for category_id in selected_categories(brew_categories):
+            if category_id not in categories :
+              category  = Category.objects.get(id=category_id)
+              brew_category = BrewCategory.objects.get(brew=brew, category=category)
+              brew_category.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     def create(self, request):
@@ -76,6 +97,8 @@ class BrewView(ViewSet):
         brew = Brew.objects.create(
           name = request.data["name"],
           description = request.data["description"],
+          image = request.data["image"],
+          stage = request.data["stage"],
           user = user,
         )
 
@@ -93,10 +116,19 @@ class BrewView(ViewSet):
         brew = Brew.objects.get(pk=pk)
         brew.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+      
+class BrewCategorySerializer(serializers.ModelSerializer):
+    """JSON serializer for BrewCategory"""
+    id = serializers.ReadOnlyField(source='category.id')
+    label = serializers.ReadOnlyField(source='category.label')
 
+    class Meta:
+      model = BrewCategory
+      fields = ('id', 'label')
 class BrewSerializer(serializers.ModelSerializer):
     """JSON serializer for Brew"""
+    categories = BrewCategorySerializer(many=True, read_only=True)
     class Meta:
         model = Brew
-        fields = ("id", "name", "user", "description", "image", "categories")
+        fields = ("id", "name", "user", "description", "image", "stage", "categories")
         depth = 1
