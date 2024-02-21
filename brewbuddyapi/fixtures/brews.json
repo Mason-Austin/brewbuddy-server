@@ -3,9 +3,10 @@
     "model": "brewbuddyapi.brew",
     "pk": 1,
     "fields": {
-      "user": 1,
+      "user": 6,
       "name": "Hoppy IPA",
-      "description": "A flavorful IPA with a hoppy aroma"
+      "description": "A flavorful IPA with a hoppy aroma",
+      "image": "https://myfermentedfoods.com/wp-content/uploads/2019/11/Mead.jpg"
     }
   },
   {
@@ -14,7 +15,8 @@
     "fields": {
       "user": 2,
       "name": "Robust Wine",
-      "description": "A rich and bold Wine with chocolate notes"
+      "description": "A rich and bold Wine with chocolate notes",
+      "image": "https://myfermentedfoods.com/wp-content/uploads/2019/11/Mead.jpg"
     }
   },
   {
@@ -23,7 +25,8 @@
     "fields": {
       "user": 3,
       "name": "Traditional Mead",
-      "description": "A classic Mead with a balanced flavor profile"
+      "description": "A classic Mead with a balanced flavor profile",
+      "image": "https://myfermentedfoods.com/wp-content/uploads/2019/11/Mead.jpg"
     }
   },
   {
@@ -32,7 +35,8 @@
     "fields": {
       "user": 4,
       "name": "Wheat Cider",
-      "description": "A refreshing Wheat Cider with hints of citrus"
+      "description": "A refreshing Wheat Cider with hints of citrus",
+      "image": "https://myfermentedfoods.com/wp-content/uploads/2019/11/Mead.jpg"
     }
   },
   {
@@ -41,7 +45,8 @@
     "fields": {
       "user": 5,
       "name": "Sour Sake",
-      "description": "A tart and funky Sour Sake with fruit undertones"
+      "description": "A tart and funky Sour Sake with fruit undertones",
+      "image": "https://myfermentedfoods.com/wp-content/uploads/2019/11/Mead.jpg"
     }
   }
 ]

@@ -29,12 +29,9 @@ class BrewView(ViewSet):
     def remove_category(self, request, pk):
         """This function deletes the relation table between one brew and one category"""
 
-        brew = Brew.objects.get(pk=pk)
-        category = Category.objects.get(id=request.data['categoryId'])
-        brew_category = BrewCategory.objects.get(brew=brew, category=category)
+        brew_category = BrewCategory.objects.get(pk=pk)
         brew_category.delete()
-        serializer = BrewSerializer(brew)
-        return Response(serializer.data)
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     def retrieve(self, request, pk):
         """Handle GET requests for a single Brew
@@ -101,5 +98,5 @@ class BrewSerializer(serializers.ModelSerializer):
     """JSON serializer for Brew"""
     class Meta:
         model = Brew
-        fields = ("id", "name", "user", "description", "categories")
+        fields = ("id", "name", "user", "description", "image", "categories")
         depth = 1

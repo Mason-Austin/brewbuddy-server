@@ -7,4 +7,5 @@ class Brew(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     description = models.TextField()
-    completed = models.BooleanField(default=False)
+    stage = models.CharField(max_length=50, default='Not Started')
+    image = models.ImageField(upload_to='brew_images/', blank=True, null=True)
