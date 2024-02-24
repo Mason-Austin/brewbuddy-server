@@ -1,0 +1,93 @@
+[
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 1,
+    "fields": {
+      "label": "Beer"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 2,
+    "fields": {
+      "label": "Wine"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 3,
+    "fields": {
+      "label": "Mead"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 4,
+    "fields": {
+      "label": "Cider"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 5,
+    "fields": {
+      "label": "Sake"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 6,
+    "fields": {
+      "label": "Hoppy"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 7,
+    "fields": {
+      "label": "Malts"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 8,
+    "fields": {
+      "label": "Fruity"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 9,
+    "fields": {
+      "label": "Spicy"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 10,
+    "fields": {
+      "label": "Tart"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 11,
+    "fields": {
+      "label": "Sweet"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 12,
+    "fields": {
+      "label": "Bitter"
+    }
+  },
+  {
+    "model": "brewbuddyapi.category",
+    "pk": 13,
+    "fields": {
+      "label": "Balanced"
+    }
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "model": "brewbuddyapi.user",
+    "pk": 1,
+    "fields": {
+      "name": "John Doe",
+      "uid": "user1",
+      "bio": "Homebrew enthusiast",
+      "created": "2024-02-13"
+    }
+  },
+  {
+    "model": "brewbuddyapi.user",
+    "pk": 2,
+    "fields": {
+      "name": "Jane Smith",
+      "uid": "user2",
+      "bio": "Craft beer lover",
+      "created": "2024-02-14"
+    }
+  },
+  {
+    "model": "brewbuddyapi.user",
+    "pk": 3,
+    "fields": {
+      "name": "Alice Johnson",
+      "uid": "user3",
+      "bio": "Beer connoisseur",
+      "created": "2024-02-15"
+    }
+  },
+  {
+    "model": "brewbuddyapi.user",
+    "pk": 4,
+    "fields": {
+      "name": "Bob Williams",
+      "uid": "user4",
+      "bio": "Amateur brewer",
+      "created": "2024-02-16"
+    }
+  },
+  {
+    "model": "brewbuddyapi.user",
+    "pk": 5,
+    "fields": {
+      "name": "Eva Brown",
+      "uid": "user5",
+      "bio": "Beer enthusiast",
+      "created": "2024-02-17"
+    }
+  }
+]
